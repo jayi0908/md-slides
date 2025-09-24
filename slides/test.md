@@ -15,59 +15,23 @@ revealOptions:
     width: 1000
 ---
 
-<style>    
-.button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-    width: 100%; 
-}
-.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-    text-decoration: none;
-    border: 1px solid #ddd;
-    padding: 0; 
-    border-radius: 50%;  
-    width: 85px; 
-    height: 85px; 
-    transition: transform 0.3s ease, border-color 0.3s ease;  
-    cursor: pointer;
-    overflow: hidden;
-}
-.button img {
-    width: 100%;  
-    height: 100%;  
-    object-fit: cover;  
-    border-radius: 50%;  
-}
-.button:hover {
-    transform: scale(1.1);
-    border-color: rgba(0, 123, 255, 0.2);
-    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2); 
-}
-.button-container .button-text {
-    position: absolute; 
-    top: 50%;
-    left: 100%;  
-    transform: translateY(-50%); 
-    opacity: 0;  
-    visibility: hidden;  
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    white-space: nowrap; 
-    font-size: 20px;
-}
-</style>
+<audio id="audio1">
+    <source src="test/audio1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<audio id="audio2">
+    <source src="test/audio2.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
 <!-- .slide: data-background="test/cover.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
 
-# いらっしゃいませ!
+<h1 onclick="document.getElementById('audio1').play()">いらっしゃいませ!</h1>
+<!-- <h1 onclick="alert(1)">いらっしゃいませ!</h1> -->
+
 
 </div></div>
 
@@ -149,6 +113,6 @@ while (0 or 1=1):
 <div class="middle center">
 <div style="width: 100%">
 
-# よろしくお願いします!
+<h1 onclick="document.getElementById('audio2').play()">よろしくお願いします!</h1>
 
 </div></div>
