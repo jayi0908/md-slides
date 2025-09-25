@@ -5,45 +5,72 @@ shopt -s nullglob
 
 cd "$(dirname "$0")"
 
-REVEALMD_FLAGS="--scripts assets/heti.js,assets/heti_worker.js --template assets/template.html"
+REVEALMD_FLAGS="--scripts assets/heti.js,assets/heti_worker.js --template assets/template.html --assets-dir assets"
 DIST_DIR=${DIST_DIR:-dist}
 
 help() {
-    echo "Usage: $0 <file>.md        # to live preview"
-    echo "       $0 build <file>.md  # to build a document"
-    echo "   or  $0 build            # to build all documents"
+    echo "Usage:"
+    echo "  $0 <sub_dir>        # to live preview (e.g. ./build.sh test)"
+    echo "  $0 build <sub_dir>  # to build a document (e.g. ./build.sh build test)"
+    echo "  $0 build            # to build all documents"
     exit 1
 }
 
 file_check() {
     # Check if file exists
-    if [ ! -f "$1" ]; then
-        echo "File not found: $1"
+    local target="$1"
+    local md_file=""
+
+    if [ -d "$1" ]; then
+        md_file="$target/index.md"
+        if [ ! -f "$md_file" ]; then
+            echo "File not found: $md_file"
+            help
+        fi
+
+    elif [ -f "$target" ]; then
+        if [[ "$target" != *.md ]]; then
+            echo "Unsupported file format(only .md or dir can be accepted): $target"
+            help
+        fi
+        md_file="$target"
+    else
+        echo "Target not found: $target"
         help
     fi
+
+    export CHECKED_MD_FILE="$md_file"
+    export CHECKED_DIR=$(dirname "$md_file")
+    export DOC_NAME=$(basename "$CHECKED_DIR")
 }
 
 live() {
     echo "Live preview of $1"
 
-    reveal-md "$1" -w $REVEALMD_FLAGS
+    reveal-md "$CHECKED_MD_FILE" -w $REVEALMD_FLAGS
 }
 
 build() {
     echo "Building $1"
 
-    docname="$(basename "$1" .md)"
-
-    reveal-md "$1" $REVEALMD_FLAGS --static "$DIST_DIR/$docname" --assets-dir assets
-    rm "$DIST_DIR/$docname/$docname.html"
-    cp -r "$docname" "$DIST_DIR/$docname"
+    reveal-md "$CHECKED_MD_FILE" $REVEALMD_FLAGS --static "$DIST_DIR/$DOC_NAME"
+    cp -rp "$CHECKED_DIR/"* "$DIST_DIR/$DOC_NAME/"
+    rm -rf "$DIST_DIR/$DOC_NAME/index.md"
 }
 
 if [ "$1" == "build" ]; then
     if [ $# -lt 2 ]; then
         echo "Building all documents"
-        for f in *.md; do
-            build $f
+        for dir in */; do
+            if [ "$dir" = "$DIST_DIR/" ] || [ "$dir" = "assets/" ]; then
+                continue
+            fi
+            if [ -f "$dir/index.md" ]; then
+                file_check "$dir"
+                build "$dir"
+            else
+                echo "Escape sub_dir $dir: index.md not found"
+            fi
         done
     else
         file_check $2
