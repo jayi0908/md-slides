@@ -118,13 +118,17 @@ $$ \dfrac{1}{\kappa(A)} \epsilon_b \leq \epsilon_x \leq \kappa(A) \epsilon_b. $$
 
 ## $A$ 的扰动对解 $\space \vec{x}$ 的影响
 
-尽管非奇异矩阵远比奇异矩阵更加稠密，但在假设 $A$ 可逆的情况下，$\delta A$ 的扰动仍然有可能使得 $A + \delta A$ 变为奇异矩阵，或者至少在计算机上表现为奇异矩阵. 而 $A + \delta A = A(I + A^{-1}\delta A)$，因此我们希望 $I + A^{-1}\delta A$ 是可逆的.
+尽管非奇异矩阵远比奇异矩阵更加稠密，但在假设 $A$ 可逆的情况下，$\delta A$ 的扰动仍然有可能使得 $A + \delta A$ 变为奇异矩阵，或者至少在计算机上表现为奇异矩阵. 而为了研究 $\space(A+\delta A)$ 有关的矩阵方程，和之前的讨论一样，我们希望 $A+\delta A$ 是可逆的. 由于 $A + \delta A = A(I + A^{-1}\delta A)$，要求也就变为 $I + A^{-1}\delta A$ 是可逆的.
 
 <div class="fragment" style="margin-top: 0px">
 
-我们知道当矩阵 $B$ 的谱半径小于 $1$ 时，矩阵 $I + B$ 是可逆的（谱半径小于 $1$ 意味着矩阵收敛，因此可使用类似于泰勒展开，将 $I - T$ 展开为 $\displaystyle\sum_{i=0}^{\infty} T^i$）. 因此我们希望 $\rho(A^{-1}\delta A) < 1$.
+我们知道当矩阵 $B$ 的谱半径小于 $1$ 时，矩阵 $I + B$ 是可逆的（谱半径小于 $1$ 意味着矩阵收敛，因此可使用类似于泰勒展开，将 $(I - T)^{-1}$ 展开为 $\sum T^i$）. 因此我们要求 $\rho(A^{-1}\delta A) < 1$ 即可保证 $I + A^{-1}\delta A$ 是可逆的.
 
-由于 $(A+\delta A)(\vec{x} + \delta \vec{x}) = \vec{b}$，且 $A\vec{x} = \vec{b}$，可得
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+回到问题本身. 由于 $(A+\delta A)(\vec{x} + \delta \vec{x}) = \vec{b}$，且 $A\vec{x} = \vec{b}$，可得
 
 $$ (A+\delta A)\delta \vec{x} = \vec{b} - (A+\delta A)\vec{x} = -(\delta A)\vec{x}. $$
 
@@ -135,15 +139,43 @@ $$ (A+\delta A)\delta \vec{x} = \vec{b} - (A+\delta A)\vec{x} = -(\delta A)\vec{
 
 从而 $$ \delta \vec{x} = -(A + \delta A)^{-1}(\delta A)\vec{x} = -(I + A^{-1}\delta A)^{-1} A^{-1}(\delta A)\vec{x}. $$
 
-因此 $$ \lVert \delta \vec{x} \rVert \leq \lVert (I + A^{-1}\delta A)^{-1} \rVert \lVert A^{-1} \rVert \lVert \delta A \rVert \lVert \vec{x} \rVert . $$
+<div class="fragment" style="margin-top: 0px">
 
-若 $\lVert A^{-1} \delta A \rVert < 1$，则 $$ (I + A^{-1}\delta A)^{-1} = I + \sum_{i=1}^{+\infty} (-1)^i (A^{-1}\delta A)^i $$
+因此 $$ \lVert \delta \vec{x} \rVert \leq \lVert (I + A^{-1}\delta A)^{-1} \rVert \lVert A^{-1} \rVert \lVert \delta A \rVert \lVert \vec{x} \rVert. \tag{1} $$
 
-$$ \lVert (I + A^{-1}\delta A)^{-1} \rVert = 1 + \sum_{i=1}^{+\infty} (-1)^i \lVert (A^{-1}\delta A)^i \rVert = \frac{1}{1-\lVert A^{-1} \delta A \rVert}$$
+</div>
+<div class="fragment" style="margin-top: 0px">
+
+由于我们假设 $\rho(A^{-1} \delta A) < 1$，故 $$ (I + A^{-1}\delta A)^{-1} = I + \sum_{i=1}^{+\infty} (-1)^i (A^{-1}\delta A)^i, $$
+
+</div>
+<div class="fragment" style="margin-top: 0px">
+
+利用范数满足三角不等式：
+
+$$ \lVert (I + A^{-1}\delta A)^{-1} \rVert \leq 1 + \sum_{i=1}^{+\infty} \lVert A^{-1}\delta A \rVert^i = \frac{1}{1-\lVert A^{-1} \delta A \rVert}. $$
+
+</div>
 
 <!--v-->
 <!-- .slide: data-background="background.webp" -->
 
+代入 (1)式，有
+
 $$ \epsilon_x = \dfrac{\lVert \delta \vec{x} \rVert}{\lVert \vec{x} \rVert} \leq \dfrac{\lVert A^{-1} \rVert \lVert \delta A \rVert}{1 - \lVert A^{-1} \rVert \lVert \delta A \rVert} = \frac{\lVert A^{-1} \rVert \lVert A \rVert \frac{\lVert \delta A \rVert}{\lVert A \rVert}}{1 - \lVert A^{-1} \rVert \lVert A \rVert \frac{\lVert \delta A \rVert}{\lVert A \rVert}}. $$
 
 设 $ \epsilon_A = \dfrac{\lVert \delta A \rVert}{\lVert A \rVert} $，则有 $\epsilon_x \leq \dfrac{\kappa(A) \epsilon_A}{1 - \kappa(A) \epsilon_A}$.
+
+<div class="fragment" style="margin-top: 0px">
+
+对 $(A+\delta A)\delta \vec{x} = -(\delta A) \vec{x}$ 两边同时取范数得：
+
+$$ \lVert (\delta A) \vec{x} \rVert \leq \lVert A + \delta A \rVert \lVert \delta \vec{x} \rVert \leq (\lVert A \rVert + \lVert \delta A \rVert) \lVert \delta \vec{x} \rVert. $$
+
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+故 $$ \epsilon_x \geq \frac{1}{\lVert A \rVert + \lVert \delta A \rVert} \cdot \frac{\lVert (\delta A) \vec{x} \rVert}{\lVert \vec{x} \rVert} = \frac{\epsilon_A}{1+\epsilon_A} \cdot \frac{\lVert (\delta A) \vec{x} \rVert}{\lVert \delta A \rVert \lVert \vec{x} \rVert}. $$
+
+</div>
