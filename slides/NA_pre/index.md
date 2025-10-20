@@ -15,16 +15,7 @@ revealOptions:
     width: 1000
 ---
 
-<!-- .slide: data-background="background.webp" -->
-<div class="middle center">
-<div style="width: 100%">
-<h1> NA Research Topic 6 </h1>
-</div></div>
-
-<!-- <div class="middle center">
-<div style="width:100%">
-袁楚涵，苏子皓，侯爵，陈响
-</div></div> -->
+<!-- .slide: data-background="cover.webp" -->
 
 <!--v-->
 <!-- .slide: data-background="background.webp" -->
@@ -104,6 +95,40 @@ $$ \epsilon_b = \dfrac{\lVert\delta \vec{b}\rVert}{\lVert\vec{b}\rVert} \leq \lV
 $$ \dfrac{1}{\kappa(A)} \epsilon_b \leq \epsilon_x \leq \kappa(A) \epsilon_b. $$
 
 这里 $\kappa(A) = \lVert A \rVert \lVert A^{-1} \rVert$ 称为矩阵 $A$ 的条件数.
+
+<div class="fragment" style="margin-top: 0px">
+
+最常用的是 $2$-范数对应的条件数 $\kappa_2(A)$，不难得到 $$ \kappa_2(A) = \lVert A \rVert_2 \cdot \lVert A^{-1} \rVert_2 = \frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}, $$ 其中 $\sigma_{\max}(A)$ 和 $\sigma_{\min}(A)$ 分别是矩阵 $A$ 的最大和最小奇异值.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+为了更好的理解得到的结果的上下界，我们需要探索一下条件数的一些性质.
+
+对于不同的范数，条件数也会展现出不同的性质.
+
+<div class="fragment" style="margin-top: 0px">
+
+- 性质1：条件数总是不小于$1$的.
+
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+- 性质2：对于 $\kappa_2$，矩阵 $Q$、$U$ 是正交矩阵/酉矩阵，则 $$ \kappa_2(QA) = \kappa_2(AU) = \kappa_2(A). $$
+    - 其重要的推论是正交矩阵和酉矩阵的条件数均为 $1$. 
+    - 与这些矩阵带来的几何直观一致，像旋转、反射这样的正交变换不会放大误差，是数值稳定性最好的变换.
+
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+- 性质3：对任意非零标量 $ c \ne 0 $，有：$ \kappa(cA) = \kappa(A). $
+    - 也就是说，矩阵的线性缩放不会影响条件数，也就是说方程组系数的等比变化不会影响解的误差.
+
+</div>
 
 <!--s-->
 <!-- .slide: data-background="background.webp" -->
