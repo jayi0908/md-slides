@@ -135,8 +135,15 @@ $$ (A+\delta A)\delta \vec{x} = \vec{b} - (A+\delta A)\vec{x} = -(\delta A)\vec{
 
 从而 $$ \delta \vec{x} = -(A + \delta A)^{-1}(\delta A)\vec{x} = -(I + A^{-1}\delta A)^{-1} A^{-1}(\delta A)\vec{x}. $$
 
-因此 $$ \lVert \delta \vec{x} \rVert \leq \frac{\lVert A^{-1} \rVert \lVert \delta A \rVert \lVert \vec{x} \rVert}{1-\lVert A^{-1} \delta A \rVert}. $$
+因此 $$ \lVert \delta \vec{x} \rVert \leq \lVert (I + A^{-1}\delta A)^{-1} \rVert \lVert A^{-1} \rVert \lVert \delta A \rVert \lVert \vec{x} \rVert . $$
 
-若 $\lVert A^{-1} \delta A \rVert < 1$，则 $$ \epsilon_x = \dfrac{\lVert \delta \vec{x} \rVert}{\lVert \vec{x} \rVert} \leq \dfrac{\lVert A^{-1} \rVert \lVert \delta A \rVert}{1 - \lVert A^{-1} \rVert \lVert \delta A \rVert} = \frac{\lVert A^{-1} \rVert \lVert A \rVert \frac{\lVert \delta A \rVert}{\lVert A \rVert}}{1 - \lVert A^{-1} \rVert \lVert A \rVert \frac{\lVert \delta A \rVert}{\lVert A \rVert}}. $$
+若 $\lVert A^{-1} \delta A \rVert < 1$，则 $$ (I + A^{-1}\delta A)^{-1} = I + \sum_{i=1}^{+\infty} (-1)^i (A^{-1}\delta A)^i $$
+
+$$ \lVert (I + A^{-1}\delta A)^{-1} \rVert = 1 + \sum_{i=1}^{+\infty} (-1)^i \lVert (A^{-1}\delta A)^i \rVert = \frac{1}{1-\lVert A^{-1} \delta A \rVert}$$
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+$$ \epsilon_x = \dfrac{\lVert \delta \vec{x} \rVert}{\lVert \vec{x} \rVert} \leq \dfrac{\lVert A^{-1} \rVert \lVert \delta A \rVert}{1 - \lVert A^{-1} \rVert \lVert \delta A \rVert} = \frac{\lVert A^{-1} \rVert \lVert A \rVert \frac{\lVert \delta A \rVert}{\lVert A \rVert}}{1 - \lVert A^{-1} \rVert \lVert A \rVert \frac{\lVert \delta A \rVert}{\lVert A \rVert}}. $$
 
 设 $ \epsilon_A = \dfrac{\lVert \delta A \rVert}{\lVert A \rVert} $，则有 $\epsilon_x \leq \dfrac{\kappa(A) \epsilon_A}{1 - \kappa(A) \epsilon_A}$.
