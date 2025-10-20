@@ -204,3 +204,90 @@ $$ \lVert (\delta A) \vec{x} \rVert \leq \lVert A + \delta A \rVert \lVert \delt
 故 $$ \epsilon_x \geq \frac{1}{\lVert A \rVert + \lVert \delta A \rVert} \cdot \frac{\lVert (\delta A) \vec{x} \rVert}{\lVert \vec{x} \rVert} = \frac{\epsilon_A}{1+\epsilon_A} \cdot \frac{\lVert (\delta A) \vec{x} \rVert}{\lVert \delta A \rVert \lVert \vec{x} \rVert}. $$
 
 </div>
+
+<!--s-->
+<!-- .slide: data-background="background.webp" -->
+
+<div class="middle center">
+<div style="width: 100%">
+<h1> Part 3 实例展示 </h1>
+</div></div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 良态与病态
+
+在定义了条件数以及知道了条件数的性质的基础上，我们可以给出良态与病态的定义：
+
+<div class="fragment" style="margin-top: 0px">
+
+对于一个矩阵 $A$，如果 $\kappa(A)$ 比较接近 $1$，则称 $A$ 是良态的；如果 $\kappa(A)$ 很大，则称 $A$ 是病态的.
+
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+基于我们前面推导出的 $\epsilon_x$ 与 $\epsilon_b, \epsilon_A$ 的关系，我们知道如果 $\kappa(A)$ 很接近 $1$，那么 $\epsilon_x$ 与 $\epsilon_b, \epsilon_A$ 的大小是相近的；如果 $\kappa(A)$ 很大，那么即使 $\epsilon_b, \epsilon_A$ 很小，$\epsilon_x$ 也可能很大. 也就是说，良态与病态与否取决于条件产生微小变化的情况下，得到的解的变化是否也很小.
+
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+下面我们用一些例子来验证我们前面的推导.
+
+</div>
+
+<!--v-->
+
+例. 设有线性方程组
+
+<div style="text-align: center;">
+<img src="./img1.png" style="width: 250px">
+</div>
+
+记为 $ Ax = b $，它的精确解为 $ x = (2, 0)^\mathrm{T} $.
+
+<div class="fragment" style="margin-top: 0px">
+
+现在考虑常数项的微小变化对线性方程组解的影响，线性方程组变为
+
+<div style="text-align: center;">
+<img src="./img2.png" style="width: 250px">
+</div>
+
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+用矩阵的形式，表示为
+
+$$ A(x + \delta x) = b + \delta b $$
+
+其中 $\delta b = (0, 0.0001)^\mathrm{T}$，$ y = x + \delta x $，$ Ax = b $. 此方程组解为 $ x + \delta x = (1, 1)^\mathrm{T} $，即 $ b $ 的小扰动造成解的变化 $\delta x$ 较大.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+对于矩阵A，通过得到其最大奇异值 $ \sigma_{\text{max}} \approx 2.00005 $，最小奇异值 $ \sigma_{\text{min}} \approx 5 \times 10^{-5} $。因此，$2-$范数条件数为：
+
+$$ \kappa(A) = \frac{\sigma_{\text{max}}}{\sigma_{\text{min}}} \approx \frac{2.00005}{5 \times 10^{-5}} = 40001. $$
+
+说明常数项的微小扰动对于该方程的解可能引起很大的误差，为“病态”方程组.
+
+<div class="fragment" style="margin-top: 0px">
+
+例子中 $$ \epsilon_b = \dfrac{\lVert\delta \vec{b}\rVert}{\lVert\vec{b}\rVert} \approx \dfrac{0.0001}{2.8284} \approx 0.00003536, \epsilon_x = \dfrac{\lVert\delta \vec{x}\rVert}{\lVert\vec{x}\rVert} \approx \dfrac{1.4142}{2} \approx 0.7071, $$
+
+符合 $$ \dfrac{1}{\kappa(A)} \epsilon_b \leq \epsilon_x \leq \kappa(A) \epsilon_b. $$
+
+</div>
+
+<!--s-->
+
+<div class="middle center">
+<div style="width: 100%">
+<h1> Thanks! </h1>
+</div></div>
