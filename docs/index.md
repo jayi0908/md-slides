@@ -5,3 +5,5 @@
 ## slides 列表
 
 - [test](https://slides.jayi0908.cn/slides/test)
+- [NA 小组展示](https://slides.jayi0908.cn/slides/NA_pre)
+- [25 秋冬数分I(H) 线上辅学](https://slides.jayi0908.cn/slides/MA1_online)

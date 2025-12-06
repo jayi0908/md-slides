@@ -24,9 +24,9 @@ revealOptions:
 
 设矩阵 $A$ 的值是准确的，$\vec{b}$ 有误差 $\delta \vec{b}$，则带有误差形式的解可写为 $\vec{x} + \delta \vec{x}$，即
 $$ A(\vec{x} + \delta \vec{x}) = \vec{b} + \delta \vec{b}. $$
-请分析 $\space\vec{b}$ 的相对误差和解 $\space\vec{x}$ 的相对误差的关系.
+请分析 $\vec{b}$ 的相对误差和解 $\vec{x}$ 的相对误差的关系.
 
-如果 $\space\vec{b}$ 是精确的而 $A$ 有误差 $\delta A$ 呢？
+如果 $\vec{b}$ 是精确的而 $A$ 有误差 $\delta A$ 呢？
 
 <!--s-->
 <!-- .slide: data-background="background.webp" -->
@@ -39,11 +39,11 @@ $$ A(\vec{x} + \delta \vec{x}) = \vec{b} + \delta \vec{b}. $$
 <!--v-->
 <!-- .slide: data-background="background.webp" -->
 
-## $\vec{b}$ 的扰动对解 $\space \vec{x}$ 的影响
+## $\vec{b}$ 的扰动对解 $\vec{x}$ 的影响
 
-如果 $A$ 是不可逆的，那么 $A\vec{x} = \vec{b}$ 的解可能不存在或者有无穷多解，取决于 $\space\vec{b}$ 能否落在 $A$ 的列空间中.
+如果 $A$ 是不可逆的，那么 $A\vec{x} = \vec{b}$ 的解可能不存在或者有无穷多解，取决于 $\vec{b}$ 能否落在 $A$ 的列空间中.
 
-而由于 $\space\vec{b}$ 有误差 $\delta \vec{b}$，则 $\vec{b} + \delta \vec{b}$ 可能不在列空间中，这样讨论解的误差就没有意义了. 因此为了讨论方便以及更有意义，我们假设 $A$ 是可逆的.
+而由于 $\vec{b}$ 有误差 $\delta \vec{b}$，则 $\vec{b} + \delta \vec{b}$ 可能不在列空间中，这样讨论解的误差就没有意义了. 因此为了讨论方便以及更有意义，我们假设 $A$ 是可逆的.
 
 <div class="fragment" style="margin-top: 0px">
 
@@ -54,7 +54,7 @@ $$ A \delta \vec{x} = \delta \vec{b}. $$
 </div>
 <div class="fragment" style="margin-top: 0px">
 
-设 $\space\vec{b}$ 的相对误差 $\epsilon_b = \dfrac{\lVert\delta \vec{b}\rVert}{\lVert\vec{b}\rVert}$，解 $\space\vec{x}$ 的相对误差为 $\epsilon_x = \dfrac{\lVert\delta \vec{x}\rVert}{\lVert\vec{x}\rVert}$.
+设 $\vec{b}$ 的相对误差 $\epsilon_b = \dfrac{\lVert\delta \vec{b}\rVert}{\lVert\vec{b}\rVert}$，解 $\vec{x}$ 的相对误差为 $\epsilon_x = \dfrac{\lVert\delta \vec{x}\rVert}{\lVert\vec{x}\rVert}$.
 
 </div>
 
@@ -73,7 +73,7 @@ $$ \lVert \vec{b}\rVert = \lVert A \vec{x} \rVert \leq \lVert A \rVert \lVert \v
 
 <div class="fragment" style="margin-top: 0px">
 
-将对 $\space \vec{b}$ 和对 $\space \vec{x}$ 的处理反过来，即根据
+将对 $ \vec{b}$ 和对 $ \vec{x}$ 的处理反过来，即根据
 
 $$ \lVert \delta \vec{b} \rVert = \lVert A \delta \vec{x} \rVert \leq \lVert A \rVert \lVert \delta \vec{x} \rVert, \lVert \vec{x} \rVert = \lVert A^{-1} \vec{b} \rVert \leq \lVert A^{-1} \rVert \lVert \vec{b} \rVert $$
 
@@ -141,9 +141,9 @@ $$ \dfrac{1}{\kappa(A)} \epsilon_b \leq \epsilon_x \leq \kappa(A) \epsilon_b. $$
 <!--v-->
 <!-- .slide: data-background="background.webp" -->
 
-## $A$ 的扰动对解 $\space \vec{x}$ 的影响
+## $A$ 的扰动对解 $\vec{x}$ 的影响
 
-尽管非奇异矩阵远比奇异矩阵更加稠密，但在假设 $A$ 可逆的情况下，$\delta A$ 的扰动仍然有可能使得 $A + \delta A$ 变为奇异矩阵，或者至少在计算机上表现为奇异矩阵. 而为了研究 $\space(A+\delta A)$ 有关的矩阵方程，和之前的讨论一样，我们希望 $A+\delta A$ 是可逆的. 由于 $A + \delta A = A(I + A^{-1}\delta A)$，要求也就变为 $I + A^{-1}\delta A$ 是可逆的.
+尽管非奇异矩阵远比奇异矩阵更加稠密，但在假设 $A$ 可逆的情况下，$\delta A$ 的扰动仍然有可能使得 $A + \delta A$ 变为奇异矩阵，或者至少在计算机上表现为奇异矩阵. 而为了研究 $(A+\delta A)$ 有关的矩阵方程，和之前的讨论一样，我们希望 $A+\delta A$ 是可逆的. 由于 $A + \delta A = A(I + A^{-1}\delta A)$，要求也就变为 $I + A^{-1}\delta A$ 是可逆的.
 
 <div class="fragment" style="margin-top: 0px">
 

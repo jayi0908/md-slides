@@ -677,15 +677,14 @@
     const REG_CJK_END = `(?<=[${CJK}])( *[${ANS}]+(?: +[${ANS}]+)*)`;
     const REG_CJK_FULL_WITHOUT_LOOKBEHIND = `(?:[${CJK}])( *[${ANS}]+(?: +[${ANS}]+)* *)(?=[${CJK}])`;
     const REG_CJK_END_WITHOUT_LOOKBEHIND = `(?:[${CJK}])( *[${ANS}]+(?: +[${ANS}]+)*)`;
-    // 修复乱码标点，使用标准中文标点
-    const REG_BD_STOP = `。？！`;
-    const REG_BD_SEP = `、，`;
-    const REG_BD_OPEN = `（「『“‘`;
-    const REG_BD_CLOSE = `）」』”’`;
+    const REG_BD_STOP = `銆傦紟锛屻€侊細锛涳紒鈥硷紵鈦嘸;
+    const REG_BD_SEP = `路銉烩€;
+    const REG_BD_OPEN = `銆屻€庯紙銆娿€堛€愩€栥€旓蓟锝沗;
+    const REG_BD_CLOSE = `銆嶃€忥級銆嬨€夈€戙€椼€曪冀锝漙;
     const REG_BD_START = `${REG_BD_OPEN}${REG_BD_CLOSE}`;
     const REG_BD_END = `${REG_BD_STOP}${REG_BD_OPEN}${REG_BD_CLOSE}`;
-    const REG_BD_HALF_OPEN = `‘“`;
-    const REG_BD_HALF_CLOSE = `’”`;
+    const REG_BD_HALF_OPEN = `鈥溾€榒;
+    const REG_BD_HALF_CLOSE = `鈥濃€檂;
     const REG_BD_HALF_START = `${REG_BD_HALF_OPEN}${REG_BD_HALF_CLOSE}`;
 
     class Heti {
