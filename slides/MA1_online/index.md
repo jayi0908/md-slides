@@ -201,7 +201,7 @@ $$ \int u \mathrm{d}v = uv - \int v \mathrm{d}u $$
 
 <div class="fragment" style="margin-top: 0px">
 
-**解**：$\arctan x$ 易求导， $x$ 易积分，因此可令 $u = \arctan x$，$\mathrm{d}v = x \mathrm{d}x$，则
+**解**：$\arctan x$ 易求导， $x\mathrm{d}x$ 易积分，因此可令 $u = \arctan x$，$\mathrm{d}v = x \mathrm{d}x$，则
 
 </div>
 
@@ -218,12 +218,18 @@ $$ \begin{aligned} \int x \arctan x \mathrm{d}x &= \frac{1}{2}x^2 \arctan x - \i
 
 <div class="fragment" style="margin-top: 0px">
 
-*Tips: 不要忘了 $1$ 也可以充当 $v$.*
+*Tips: 不要忘了 $\mathrm{d}x$ 也可以充当 $\mathrm{d}v$.*
 
 </div>
 
 <div class="fragment" style="font-size: 18pt; margin-top: 0px">
 $$ \begin{aligned} \int \arcsin x \mathrm{d}x &= x \arcsin x - \int \frac{x}{\sqrt{1-x^2}} \mathrm{d}x \\ &= x \arcsin x + \frac{1}{2} \int \frac{1}{\sqrt{1-x^2}} \mathrm{d}(1-x^2) \\ &= x \arcsin x + \sqrt{1-x^2} + C. \end{aligned} $$
+</div>
+
+<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+
+这种情况可以总结为：$\displaystyle\int f(x) \mathrm{d}x = xf(x) - \displaystyle\int x f'(x) \mathrm{d}x$. 当 $f'(x)$ 为只包含 $x$ 的有理函数（或其他易于积分的形式）时，可以使用该方法求解.
+
 </div>
 
 <!--v-->
@@ -235,7 +241,7 @@ $$ \begin{aligned} \int \arcsin x \mathrm{d}x &= x \arcsin x - \int \frac{x}{\sq
 
 <div class="fragment" style="margin-top: 0px">
 
-*Tips: 在两个因子都容易求导/求积分时可以试试轮流充当 $u$ 与 $v$.*
+*Tips: 在两个因子都容易求导/求积分时可以试试轮流充当 $u$ 与 $\mathrm{d}v$.*
 
 </div>
 
@@ -622,11 +628,156 @@ $$ \int \frac{1}{u^2(1-u^2)} \mathrm{d}u = \int \left( \frac{1}{u^2} + \frac{1}{
 
 <div class="fragment" style="margin-top: 0px">
 
-定义：对于定义在 $[a,b]$ 上的函数 $f(x)$，取分点：$a=x_0 < x_1 < \ldots < x_n = b$ 将 $[a,b]$ 划分为 $n$ 个子区间，并在每个子区间 $[x_{i-1}, x_i]$ 上取一点 $\xi_i$，称和式 $S_n = \sum_{i=1}^n f(\xi_i) \Delta x_i \quad(\Delta x_i = x_i - x_{i-1})$ 为 $f(x)$ 在区间 $[a,b]$ 上的一个*Riemann和*. 
+定义：对于定义在 $[a,b]$ 上的函数 $f(x)$，取分点：$a=x_0 < x_1 < \ldots < x_n = b$ 将 $[a,b]$ 划分为 $n$ 个子区间，并在每个子区间 $\Delta_i = [x_{i-1}, x_i]$ 上取一点 $\xi_i$，称和式 $S_n = \sum_{i=1}^n f(\xi_i) \Delta x_i \quad(\Delta x_i = x_i - x_{i-1})$ 为 $f(x)$ 在区间 $[a,b]$ 上的一个 *Riemann 和*. 
 
 </div>
 <div class="fragment" style="margin-top: 0px">
 
-若对任意的 $\epsilon >0$，存在 $\delta >0$，使得对任意一种划分与任意取的点 $\xi_i$，只要 $\max \Delta x_i < \delta$，都有 $|S_n - I| < \epsilon$，则称 $f(x)$ 在区间 $[a,b]$ 上*Riemann可积*，并称极限 $\lim_{\max \Delta x_i \to 0} S_n = I$ 为 $f(x)$ 在区间 $[a,b]$ 上的*定积分*，记作 $$ I = \int_a^b f(x) \mathrm{d}x. $$
+若对任意的 $\epsilon >0$，存在 $\delta >0$，使得对任意一种划分与任意取的点 $\xi_i$，只要 $\max \Delta x_i < \delta$，都有 $|S_n - I| < \epsilon$，则称 $f(x)$ 在区间 $[a,b]$ 上 *Riemann 可积*，并称极限 $\lim_{\max \Delta x_i \to 0} S_n = I$ 为 $f(x)$ 在区间 $[a,b]$ 上的*定积分*，记作 $$ I = \int_a^b f(x) \mathrm{d}x. $$
 
 </div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 关于可积理论
+
+数学分析注重定理的证明，有关达布和与可积理论的证明虽然较为抽象和繁琐，但是希望同学们能够理解与掌握. 不过由于可积理论一直不是考试重点，并且本讲的专题是计算相关，因此这里不再赘述. 这里仅提及一些十分重要的结论.
+
+<div class="fragment" style="margin-top: 0px">
+
+1.（可积的简单充分条件）对于定义在闭区间 $[a,b]$ 上的函数，有以下结论：
+
+- 函数连续必可积.
+- 函数仅有有限个间断点必可积.
+- 函数单调必可积（不论间断点个数）.
+
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+2.（可积准则）易证 $f$ 在 $[a,b]$ 上可积则在 $[a,b]$ 上有界. 则对分割 $T = \set{ \Delta_i | 1\leq i \leq n }$，由有界性可定义 $M_i = \sup_{x \in \Delta_i} f(x)$ 和 $m_i = \inf_{x \in \Delta_i} f(x)$，则 $f$ 在 $[a,b]$ 上可积当且仅当对 $\forall \epsilon > 0$，存在分割 $T$ 使得 $$ \sum_{i=1}^n (M_i - m_i) \Delta x_i < \epsilon. $$
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 相关应用
+
+1. 证明 Riemann 函数：
+
+<div style="font-size: 18pt; margin-top: 0px">
+$$ R(x) = \begin{cases} \frac{1}{q}, & x = \frac{p}{q}(p,q \in \mathbf{N}^+, \gcd(p,q) = 1， p < q) \\ 0, & x = 0,1 \text{ 及 } x \in (\mathbf{R} \setminus \mathbf{Q}) \cap (0,1) \end{cases} $$
+</div>
+
+在区间 $[0,1]$ 上可积，且 $\displaystyle\int_0^1 R(x) \mathrm{d}x = 0$.
+
+<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+
+**解**：利用可积准则，对任意的 $\epsilon > 0$，我们要构造分割 $T$ 使得 $$ \sum_{i=1}^n (M_i - m_i) \Delta x_i < \epsilon. $$
+
+由于对于任意给定值 $M > 0$，使 $R(x)>M$ 的 $x$ 的个数有限，因此只需要构造分割使得包含这些 $x$ 的子区间的长度足够小即可.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 相关应用(Cont.)
+
+从而我们可以设 $[0,1]$ 上使得 $\frac{1}{q} > M$ 的有理点 $\frac{p}{q}$ 只有有限个，记为 $r_1, r_2, \ldots, r_k$，$M$ 待定. 对 $[0,1]$ 作分割 $T = \set{ \Delta_i | 1\leq i \leq n }$ 使得 $||T|| < M'$，$M'>0$ 待定，且子区间可重排为 $\Delta'_1, \Delta'_2, \ldots, \Delta'_n$，使得存在 $m \in \mathbf{N}$ 使得 $r_1,\ldots,r_k$ 均落在 $\Delta'_1,\ldots,\Delta'_m$ 中. 特别的，$m \leq 2k$.
+
+<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+$$ \begin{aligned} \sum_{i=1}^n (M_i - m_i) \Delta x_i &= \sum_{i=1}^m M_i \Delta x_i + \sum_{i=m+1}^n M_i \Delta x_i \leq \sum_{i=1}^m \frac{1}{2} \Delta x_i + \sum_{i=m+1}^n M \Delta x_i \\ &\leq \frac{1}{2} \cdot 2k \cdot ||T|| + M < kM' + M. \end{aligned} $$
+</div>
+
+<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+
+从而可取 $M = \dfrac{\epsilon}{2}$，$M' = \dfrac{\epsilon}{2k}$，则有 $\sum_{i=1}^n (M_i - m_i) \Delta x_i < \epsilon.$ 故 $R(x)$ 在 $[0,1]$ 上可积. 
+
+取 Riemann 和的分点全为无理点可得 Riemann 和为 $0$，故所求积分为 $0$.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 牛顿-莱布尼兹公式
+
+大部分题目采取可积准则证明可积+取分点得到积分值的方法会很麻烦（但因为是充要条件所以总是可做的），牛顿-莱布尼兹公式则给出了一种简单的求解方法：
+
+若 $f(x)$ 在 $[a,b]$ 上连续，则 $f(x)$ 在 $[a,b]$ 上可积，且 $$ \int_a^b f(x) \mathrm{d}x = F(b) - F(a). $$ 其中 $F(x)$ 是 $f(x)$ 的原函数.
+
+<div class="fragment" style="margin-top: 0px">
+
+这里条件只提到了 $f(x)$ 在 $[a,b]$ 上连续，这是因为连续能推出 $f$ 在 $[a,b]$ 上的任意闭区间内可积，从而原函数一定存在. 事实上用积分中值定理可以证明，$F(x) = \displaystyle\int_a^x f(t) \mathrm{d}t$ 为 $f(x)$ 在 $[a,b]$ 上的一个原函数.
+
+</div>
+<div class="fragment" style="margin-top: 0px">
+
+如果能求出原函数的显式表示，就可以将定积分的求解转化为不定积分的求解.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 相关应用
+
+2. （用定义将极限转换为积分）求 $\displaystyle\lim_{n \to \infty} n \sum_{k=1}^n \frac{1}{n^2 + k^2}$.
+
+<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+$$ \begin{aligned} \lim_{n \to \infty} n \sum_{k=1}^n \frac{1}{n^2 + k^2} &= \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{n} \cdot \frac{1}{1 + \left(\frac{k}{n}\right)^2} = \int_0^1 \frac{1}{1 + x^2} \mathrm{d}x \\ &= \arctan 1 - \arctan 0 = \frac{\pi}{4}. \end{aligned} $$
+</div>
+
+<div class="fragment" style="margin-top: 0px">
+
+关键为将极限式转换为 $\displaystyle\lim_{n \to \infty} \sum_{k=1}^n f(\xi_k) \Delta x_k$ 的形式. 这种题常见的就是取 $\xi_k = \frac{k}{n}$, $\Delta x_k = \frac{1}{n}$（即将 $[0,1]$ $n$ 等分）.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 相关应用
+
+3. 求 $\displaystyle \lim_{n\to \infty} \sum_{k=1}^n \frac{\sin \frac{k\pi}{n}}{n+\frac{k}{n}}.$
+
+<!--<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+$$ \begin{aligned} \lim_{n \to \infty} \sum_{k=1}^n \frac{\sin \frac{k\pi}{n}}{n+\frac{k}{n}} &= \lim_{n \to \infty} \sum_{k=1}^n \frac{\sin \frac{k\pi}{n}}{n} \cdot \frac{1}{1 + \frac{k}{n^2}} \\ &= \int_0^1 \frac{\sin \pi x}{1 + x} \mathrm{d}x. \end{aligned} $$
+</div>-->
+<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+$$ \lim_{n \to \infty} \sum_{k=1}^n \frac{\sin \frac{k\pi}{n}}{n+\frac{k}{n}} = \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{n} \sin \frac{k\pi}{n} \cdot \frac{1}{1 + \frac{k}{n^2}}. $$
+</div>
+
+<div class="fragment" style="font-size: 18pt; margin-top: 0px">
+
+由 $\displaystyle\lim_{n \to \infty} \sum_{k=1}^n \frac{1}{n} \sin \frac{k\pi}{n} = \int_0^1 \sin \pi x \mathrm{d}x = \frac{2}{\pi}$，且 $\dfrac{1}{1+\frac{1}{n}} \leq \dfrac{1}{1+\frac{k}{n^2}} < 1$，故
+
+$$  \lim_{n\to\infty} \frac{n}{n+1} \cdot \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{n} \sin \frac{k\pi}{n} \leq \lim_{n \to \infty} \sum_{k=1}^n \frac{\sin \frac{k\pi}{n}}{n+\frac{k}{n}} < \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{n} \sin \frac{k\pi}{n}. $$
+
+由夹逼定理可知所求结果即为 $\frac{2}{\pi}$.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
+
+## 变限积分
+
+前面提到的积分 $F(x)=\displaystyle\int_a^x f(t) \mathrm{d}t$ 实际上就是**变限积分**，且根据定积分的性质我们有：
+
+- 若 $f$ 在 $[a,b]$ 上可积，则 $F$ 在 $[a,b]$ 上连续.
+- 若 $f$ 在 $[a,b]$ 上连续，则 $F$ 在 $[a,b]$ 上可导，且 $F'(x)=f(x)$.
+
+<div class="fragment" style="margin-top: 0px">
+
+变限积分最基础的应用就是 $F'(x)=f(x)$，在洛必达等场景中会用到. 
+
+除此以外还有一些题目涉及到变限积分和其他结构的转换.
+
+</div>
+
+<!--v-->
+<!-- .slide: data-background="background.webp" -->
