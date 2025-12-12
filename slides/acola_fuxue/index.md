@@ -1,5 +1,5 @@
 ---
-title: Slide 模板
+title: Acola 程算辅学
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
