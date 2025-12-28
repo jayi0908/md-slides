@@ -1187,7 +1187,7 @@ $0<p\leq 1$ 时，由于 $F(x)=\int_1^x \sin t \mathrm{d}t = \cos 1 - \cos x$ �
 
 <div class="fragment" style="margin-top: 0px">
 
-对 $\int_0^{\infty} f^2(x) \mathrm{d}x$ 用分部积分：
+对 $\int_0^{+\infty} f^2(x) \mathrm{d}x$ 用分部积分：
 
 </div>
 
@@ -1202,7 +1202,7 @@ $$\int_0^{+\infty} \frac{\sin^2 x}{x^2} \mathrm{d}x = -\left[ \frac{\sin^2 x}{x}
 </div>
 
 <div class="fragment" style="font-size: 16pt; margin-top: 0px">
-$$\left[ \frac{\sin^2 x}{x} \right]_0^{+\infty}=0, \int_0^{\infty} \frac{2\sin x \cos x}{x} \mathrm{d}x = \int_0^{\infty} \frac{\sin 2x}{2x} \mathrm{d}(2x) = \int_0^{\infty} f(x) \mathrm{d}x. $$
+$$\left[ \frac{\sin^2 x}{x} \right]_0^{+\infty}=0, \int_0^{+\infty} \frac{2\sin x \cos x}{x} \mathrm{d}x = \int_0^{+\infty} \frac{\sin 2x}{2x} \mathrm{d}(2x) = \int_0^{+\infty} f(x) \mathrm{d}x. $$
 </div>
 
 <div class="fragment" style="margin-top: 0px">
@@ -1270,7 +1270,7 @@ $$\left[ \frac{\sin^2 x}{x} \right]_0^{+\infty}=0, \int_0^{\infty} \frac{2\sin x
 </div>
 
 <div class="fragment" style="font-size: 16pt; margin-top: 0px">
-$$\int_{\frac{1}{b-a}}^{+\infty} \frac{f(a+\frac{1}{t})}{t^2} \mathrm{d}t = \int_{\frac{1}{b-a}}^{+\infty} \left(\frac{1}{t}\right)^{2-p} \mathrm{d}t. $$ 
+$$\int_{\frac{1}{b-a}}^{+\infty} \frac{f(a+\frac{1}{t})}{t^2} \mathrm{d}t = \int_{\frac{1}{b-a}}^{+\infty} \frac{1}{t^{2-p}} \mathrm{d}t. $$ 
 
 故 $I$ 收敛当且仅当 $p<1$.
 
