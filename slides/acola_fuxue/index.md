@@ -632,7 +632,7 @@ This is a paragraph. and:
 \subsubsection{三级标题}
 
 \section*{一级标题}
-\section[目录中标题][文章中标题]
+\section[目录中标题]{文章中标题}
 
 \paragraph{段落标题}
 \subparagraph{子段落标题}
@@ -670,8 +670,10 @@ This is a paragraph. and:
 - 常见的 environment
     - itemize 无序列表
     - enumerate 有序列表
-    - table 表格
+    - table 表格浮动体
     - figure 浮动体
+    - tabular 表格
+- [表格生成器](https://www.tablesgenerator.com/)
 
 
 </div>
@@ -1278,12 +1280,6 @@ columns: (5cm,1fr,2fr),
   - [Reveal-md](https://github.com/webpro/reveal-md)
 - 日常记笔记
 - 简单的 report 书写
-
-<div class="fragment" style="margin-top: 0px">
-
-这篇 slide 就是由 Reveal-md 编写成的.
-
-</div>
 
 <!--v-->
 ## 可以做什么 - LaTeX & Typst
