@@ -7,4 +7,5 @@
 - [test](https://slides.jayi0908.cn/slides/test)
 - [NA 小组展示](https://slides.jayi0908.cn/slides/NA_pre)
 - [25 秋冬数分I(H) 线上辅学](https://slides.jayi0908.cn/slides/MA1_online)
+- [26 秋冬线代（H）分享](https://slides.jayi0908.cn/slides/LA_share)
 - 帮忙部署：[Acola 程算辅学](https://slides.jayi0908.cn/slides/acola_fuxue)
