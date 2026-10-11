@@ -886,6 +886,19 @@ $$ \vec{x}=A^{\dagger}\vec{b}. $$
 
 </div>
 
+<div class="fragment" style="margin-top: 0px">
+
+同学们的问题：
+
+- 上课怎么听
+- 下课怎么学
+- 作业怎么做
+- 复习与考试
+- 是否学会了
+- 不会怎么办
+
+</div>
+
 <!--s-->
 <!-- .slide: data-background="background.webp" -->
 
